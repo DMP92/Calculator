@@ -1,0 +1,266 @@
+html, body {
+    margin: 0 auto;
+    padding: 0;  
+    background-color:  #003d59;
+ 
+}
+
+/* 
+#f36224 - orange
+#f18c31 - lighter orange
+#3e474c; - gray
+ #418078; - greenish blue
+#003d59 - deeper blue
+
+*/
+
+
+h1 {
+    color: grey;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+
+}
+
+.calculatorContain {
+    display: grid;
+    position: relative;
+    margin-top: 2%;
+    grid-gap: 30px;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas: 
+                      "title"
+                        "calcBody";
+    width: 100%;
+    height: 50vh;
+    justify-items: center;
+}
+
+.calcTitle {
+    grid-area: "title";
+    width: 100%;
+    height: 100%;   
+ 
+}
+
+.calculator {
+    grid-area: "calcBody";
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas: 
+                        "screen"
+                        "buttons";
+    justify-items: center;
+    align-items: flex-end;
+    background-color: #3e474c;
+    width: 70vw;
+    max-width: 500px;
+    min-width: 380px;
+    height: 75vh;
+    max-height: 750px;
+    min-height: 540px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, .5) 7px -5px 5px;
+}
+
+.screen {
+    display: flex;
+    grid-area: "screen";
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 83%;
+    height: 82%;
+    border-radius: 10px;
+    
+}
+
+
+.results {
+    
+}
+
+.button-grid {
+    position: relative;
+    margin-bottom: 45px;
+    align-self: center;
+    align-items: flex-start;
+    display: grid;
+    grid-area: "buttons";
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-areas: 
+                    "col1row1 col2row1"
+                    "col1row2 col2row1"
+                    "col1row3 col2row3"
+                    "col1row4 col2row5"
+                    "col1row5 col2row5";
+    height: 80%;
+    width: 85%;
+    grid-gap: 3px;
+}
+
+button {
+    color: black;
+    background-color: rgba(255, 255, 255, .9);
+    width: 90%;
+    height: 80%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 5px;
+    font-size: 30px;
+    border: 0px solid transparent;
+    outline: 0px solid transparent;
+    box-shadow: 0 9px rgba(0, 0, 0, .6);
+
+}
+
+button:hover {
+   background-color:#ecededb9
+}
+
+button:active {
+    box-shadow: 0 5px rgba(0, 0, 0, .6);
+    transform: translateY(4px);
+
+}
+
+.col1row1 {
+    
+    display: flex;
+    grid-area: "col1row1";
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.c1r1Ba {
+    background-color: rgba(0, 0, 0, 0.788) !important;
+    color: white !important;
+}
+
+.c1r1Ba:hover {
+    background-color: black !important;
+
+}
+
+.c1r1Bb {
+    background-color: rgba(0, 0, 0, 0.788) !important;
+    color: white !important;
+}
+
+.c1r1Bb:hover {
+    background-color: black !important;
+
+}
+
+.c1r1Bc {
+    background-color: rgba(0, 0, 0, 0.788) !important;
+    color: white !important;
+}
+
+.c1r1Bc:hover {
+    background-color: black !important;
+
+}
+
+.col2row1 {
+    grid-area: "col2row1";
+    height: 100%;
+    width: 100%;
+}
+
+.c2r1Bd {
+    background-color: rgba(0, 0, 0, 0.788) !important;
+    color: white !important;
+}
+
+.c2r1Bd:hover {
+    background-color: black !important;
+}
+
+.col1row2 {
+    display: flex;
+    grid-area: "col1row2";
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+
+}
+
+.col2row2 {
+    grid-area:"col2row2";
+    height: 100%;
+    width: 100%;
+}
+
+.col1row3 {
+    display: flex;
+    grid-area: "col1row3";
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+
+}
+
+.col2row3 {
+    grid-area: "col2row3";
+    height: 100%;
+    width: 100%;
+}
+
+.col1row4 {
+    display: flex;
+    grid-area: "col1row4";
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+
+}
+
+
+
+.col1row5 {
+    display: flex;
+    grid-area: "col1row5";
+    width: 100%;
+    height: 100%;
+    grid-row: 5;
+    
+    
+}
+
+.zero {
+    width: 100%;
+    height: 81%;
+    
+    
+}
+
+.period {
+    height: 81%;
+    width: 46.5%;
+}
+
+.col2row5 {
+    grid-area: "col2row5";
+    height: 100%;
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 4 / 13;
+    
+}
+
+.equalButt {
+    background-color: #ff7700 !important;
+    
+}
+
+.equalButt:hover {
+    background-color: #ff7700ce !important;
+}
+
+
+#f36224 - orange
+#f18c31 - lighter orange
