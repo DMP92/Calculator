@@ -17,9 +17,10 @@ const allClear = document.querySelector('.c1r1Ba');
 const minus = document.querySelector('.minus');
 const plus = document.querySelector('.plus');
 
+
 const one = document.querySelector('.one');
 one.addEventListener('click', () => {
-    print();
+    print(1);
 })
 two.addEventListener('click', () => {
     print(2);
@@ -45,6 +46,11 @@ eight.addEventListener('click', () => {
 nine.addEventListener('click', () => {
     print(9);
 })
+
+zero.addEventListener('click', () => {
+    print(0);
+})
+
 
 
 function print(text) {
