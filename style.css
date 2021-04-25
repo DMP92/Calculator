@@ -9,11 +9,29 @@ html, body {
 #f36224 - orange
 #f18c31 - lighter orange
 #3e474c; - gray
- #418078; - greenish blue
+#418078; - greenish blue
 #003d59 - deeper blue
 
 */
+@media screen and (max-width: 700px) {
+    p {
+        color: #a2ebff;
+        font-family: Fira Code iScript;
+        flex-wrap: nowrap;
+        font-size: 13px;
+        
+    }
+}
 
+@media screen and (min-width: 701px) {
+    p {
+        color: #a2ebff;
+        font-family: Fira Code iScript;
+        flex-wrap: nowrap;
+        font-size: 15px;
+        
+    }
+}
 
 h1 {
     font-style: italic;
@@ -25,6 +43,17 @@ h1 {
     text-align: center;
     text-shadow: 2px 2px 2px black;
 }
+
+a {
+    text-decoration: none;
+    color:rgba(255, 255, 255, .9);
+
+}
+
+ {
+
+}
+
 
 .calculatorContain {
     display: grid;
@@ -54,19 +83,16 @@ h1 {
     grid-area: "calcBody";
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 25% 75%;
+    grid-template-rows: 20% 75% 5%;
     grid-template-areas: 
                         "screen"
-                        "buttons";
+                        "buttons"
+                        "outro";
     justify-items: center;
     align-items: flex-end;
     background-color: #3e474c;
-    width: 70vw;
-    max-width: 500px;
-    min-width: 320px;
-    height: 75vh;
-    max-height: 750px;
-    min-height: 540px;
+    width: 320px;
+    height: 500px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, .5) 7px -5px 5px;
 }
@@ -77,19 +103,18 @@ h1 {
     grid-area: "calcBody";
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 25% 75%;
+    grid-template-rows: 25% 75% 5%;
     grid-template-areas: 
                         "screen"
-                        "buttons";
+                        "buttons"
+                        "outro";
     justify-items: center;
     align-items: flex-end;
     background-color: #3e474c;
-    width: 70vw;
-    max-width: 500px;
-    min-width: 320px;
-    height: 75vh;
-    max-height: 750px;
-    min-height: 540px;
+    width: 350px;
+    
+    height: 540px;
+    
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, .5) 7px -5px 5px;
     margin-top: 30px;
@@ -98,11 +123,15 @@ h1 {
 
 .screen {
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
     grid-area: "screen";
     background-color: rgba(255, 255, 255, 0.6);
     width: 83%;
     height: 82%;
     border-radius: 10px;
+    padding-right: 10px;
     
 }
 
@@ -113,7 +142,7 @@ h1 {
 
 .button-grid {
     position: relative;
-    margin-bottom: 45px;
+    margin-top: -55px;
     align-self: center;
     align-items: flex-start;
     display: grid;
@@ -259,6 +288,7 @@ button:active {
     grid-row: 5;
     
     
+    
 }
 
 .zero {
@@ -273,13 +303,30 @@ button:active {
     width: 46.5%;
 }
 
-.col2row5 {
-    grid-area: "col2row5";
-    height: 100%;
-    width: 100%;
-    grid-column: 2 / 3;
-    grid-row: 4 / 13;
+@media screen and (max-width: 700px) {
     
+    .col2row5 {
+        grid-area: "col2row5";
+        height: 100%;
+        width: 100%;
+        grid-column: 2 / 3;
+        grid-row: 4 / 12;
+        
+    }
+
+}
+
+@media screen and (min-width: 701px) {
+
+    .col2row5 {
+        grid-area: "col2row5";
+        height: 100%;
+        width: 100%;
+        grid-column: 2 / 3;
+        grid-row: 4 / 12;
+        
+    }
+
 }
 
 .equalButt {
@@ -292,5 +339,46 @@ button:active {
 }
 
 
+@media screen and (min-width: 701px) {
+
+    .outro {
+    grid-area: "outro";
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    grid-column: 1/3;
+    margin-top: -20px;
+    margin-left: 5px;
+}
+}
+    
+    
+    
+    
+
+@media screen and (max-width: 700px) {
+
+    .outro {
+        grid-area: "outro";
+        display: flex;
+        flex-wrap: nowrap;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        grid-column: 1/3;
+        margin-top: -10px;
+        margin-left: 10px;
+    }
+
+}
+        
+        
+        
+
+
+
 #f36224 - orange
 #f18c31 - lighter orange
+
