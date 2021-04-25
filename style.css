@@ -49,6 +49,29 @@ h1 {
  
 }
 
+@media screen and (max-width: 500px) {
+.calculator {
+    grid-area: "calcBody";
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas: 
+                        "screen"
+                        "buttons";
+    justify-items: center;
+    align-items: flex-end;
+    background-color: #3e474c;
+    width: 70vw;
+    max-width: 500px;
+    min-width: 320px;
+    height: 75vh;
+    max-height: 750px;
+    min-height: 540px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, .5) 7px -5px 5px;
+}
+}
+
 .calculator {
     grid-area: "calcBody";
     display: grid;
@@ -70,6 +93,7 @@ h1 {
     box-shadow: rgba(0, 0, 0, .5) 7px -5px 5px;
     margin-top: 30px;
 }
+
 
 .screen {
     display: flex;
