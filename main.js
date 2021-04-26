@@ -99,7 +99,7 @@ function filler() {
 function print(text) {
     let para = document.querySelector('.results');
     para.textContent += `${text}`;
-    para.style.cssText = "font-size: 30px; font-size: 3.5vw; color: white; ";
+    para.style.cssText = "font-size: 35px; color: white; margin-bottom: -1px;";
     allComputations.push(text);
     
 }
@@ -108,7 +108,7 @@ function addition() {
     
     console.log(runningTotal);
     let para = document.querySelector('.results');
-    para.style.cssText = "font-size: 30px; font-size: 3.5vw; color: white; ";
+    para.style.cssText = "font-size: 35px; color: white; margin-bottom: -1px;";
     runningTotal.push(' + ');
     total = runningTotal.join('');
     let b = runningTotal.length - 1;

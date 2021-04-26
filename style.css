@@ -6,6 +6,7 @@ html, body {
 }
 
 /* 
+black from old buttons: rgba(0, 0, 0, 0.79);
 #f36224 - orange
 #f18c31 - lighter orange
 #3e474c; - gray
@@ -133,14 +134,13 @@ a:hover {
     align-items: flex-end;
     overflow: hidden;
     grid-area: "screen";
-    background-color: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(200deg,rgba(219, 209, 209, 0.322), rgba(255, 255, 255, 0.6));
     width: 83%;
     height: 82%;
     border-radius: 10px;
     padding-right: 10px;
     padding-left: 10px;
     flex-wrap: nowrap;
-    
     text-shadow: #3e474c 2px 2px 2px;
 }
 
@@ -204,7 +204,7 @@ button:active {
 }
 
 .c1r1Ba {
-    background-color: rgba(0, 0, 0, 0.788) !important;
+    background: linear-gradient(220deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)) !important;
     color: white !important;
 }
 
@@ -214,7 +214,7 @@ button:active {
 }
 
 .c1r1Bb {
-    background-color: rgba(0, 0, 0, 0.788) !important;
+    background: linear-gradient(220deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)) !important;
     color: white !important;
 }
 
@@ -224,7 +224,7 @@ button:active {
 }
 
 .c1r1Bc {
-    background-color: rgba(0, 0, 0, 0.788) !important;
+    background: linear-gradient(220deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)) !important;
     color: white !important;
 }
 
@@ -240,7 +240,7 @@ button:active {
 }
 
 .c2r1Bd {
-    background-color: rgba(0, 0, 0, 0.788) !important;
+    background: linear-gradient(220deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.25)) !important;
     color: white !important;
 }
 
@@ -340,6 +340,7 @@ button:active {
 
 .equalButt {
     background-color: #e79925 !important;
+    
     
 }
 
