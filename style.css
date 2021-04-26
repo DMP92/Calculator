@@ -15,17 +15,18 @@ html, body {
 */
 @media screen and (max-width: 700px) {
     p {
-        color: #a2ebff;
+        color:rgb(0, 225, 255);
         font-family: Fira Code iScript;
         flex-wrap: nowrap;
         font-size: 13px;
+        text-anchor: middle;
         
     }
 }
 
 @media screen and (min-width: 701px) {
     p {
-        color: #a2ebff;
+        color: rgb(0, 225, 255);
         font-family: Fira Code iScript;
         flex-wrap: nowrap;
         font-size: 15px;
@@ -33,25 +34,30 @@ html, body {
     }
 }
 
+
 h1 {
     font-style: italic;
-    color: #a2ebff;
-    font-family: Fira Code iScript;
+    color: white;
+    font-family: Syncopate;
     font-size: 50px;
     z-index: 1;
     position: relative;
     text-align: center;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 0px 0px 10px rgb(0, 255, 255);
 }
 
 a {
     text-decoration: none;
     color:rgba(255, 255, 255, .9);
+    text-shadow: 0 0 2px rgb(0, 225, 255);
 
 }
 
- {
-
+a:hover {
+    text-decoration: none;
+    color: rgb(0, 225, 255) !important;
+    text-shadow:  0 0 2px rgba(0, 0, 0, .9);
+    transition: ease-out .2s;
 }
 
 
@@ -125,14 +131,17 @@ a {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    
+    overflow: hidden;
     grid-area: "screen";
     background-color: rgba(255, 255, 255, 0.6);
     width: 83%;
     height: 82%;
     border-radius: 10px;
     padding-right: 10px;
+    padding-left: 10px;
+    flex-wrap: nowrap;
     
+    text-shadow: #3e474c 2px 2px 2px;
 }
 
 

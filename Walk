@@ -1,0 +1,25 @@
+1. The numbers need to be stored.
+
+2. When a sign is pressed, the numbers 
+previously entered need to disappear.
+
+3. The numbers once removed from the screen
+then need to join together for possible 
+equations.
+
+4. Each sign needs to take the number created
+and prepare it to be mixed together with the
+following number added.
+
+5. Once the equal button is pressed, the 
+result should be printed to the screen.
+
+6. AC and C both need to erase. Completely
+and individually, respectively.
+
+7. An error needs to be pressed if you 
+divide 0 by 0.
+
+8. Decimal points should be 
+reduced to three places.
+
