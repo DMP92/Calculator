@@ -146,6 +146,12 @@ a:hover {
 }
 
 .screen {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50%, 50%;
+    grid-template-areas: 
+                "liveComp"
+                "results";
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -155,15 +161,27 @@ a:hover {
     width: 83%;
     height: 82%;
     border-radius: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
+    
     flex-wrap: nowrap;
-    text-shadow: #3e474c 2px 2px 2px;
+    text-shadow: #3e474c 2px 2px 2px; 
+    justify-content: flex-end !important;
+    grid-gap: 5px;
 }
 
 
 .results {
-    
+    grid-area: "results";
+    align-self: flex-end !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 5px;
+}
+
+.liveComputation {
+    position: fixed;
+    grid-area: "liveComp";
+    margin-right: 10px !important;
+    align-self: flex-start !important;
 }
 
 .button-grid {

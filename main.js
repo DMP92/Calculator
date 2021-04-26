@@ -1,3 +1,7 @@
+let allComputations = [];
+let runningTotal = [];
+
+
 // Numerical identifiers & event listeners
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
@@ -53,6 +57,7 @@ eight.addEventListener('click', () => {
 const nine = document.querySelector('.nine');
 nine.addEventListener('click', () => {
     print(9);
+
 })
 
 // Mathematic identifiers and event listeners
@@ -85,13 +90,10 @@ plus.addEventListener('click', addition);
 
 // Screen Printing 
 
-let allComputations = [];
-let runningTotal = [];
 
 
 function filler() {
     let para = document.querySelector('.results').innerHTML = '';
-    runningTotal.push(allComputations.join(''));
     allComputations = [];
 
 }
@@ -99,31 +101,44 @@ function filler() {
 function print(text) {
     let para = document.querySelector('.results');
     para.textContent += `${text}`;
-    para.style.cssText = "font-size: 35px; color: white; margin-bottom: -1px;";
-    allComputations.push(text);
-    
+    para.style.cssText = "font-size: 35px; color: white; ";
+    allComputations.push(text); 
 }
-    
-function addition() {
-    
-    console.log(runningTotal);
+   
+
+function livePrint(text) {
+    let liveComp = document.querySelector('.liveComputation');
+    liveComp.innerHTML = text;
+}
+
+function addition(a, b) {
     let para = document.querySelector('.results');
-    para.style.cssText = "font-size: 35px; color: white; margin-bottom: -1px;";
-    runningTotal.push(' + ');
-    total = runningTotal.join('');
-    let b = runningTotal.length - 1;
-    let c = para.textContent;
+    para.style.innerHTML = "font-size: 35px; color: white; ";
+
+    runningTotal.push(para.innerHTML);
     filler();
-    let sum = b + c;
-    para.textContent = `${sum}`;
+    let numeric = runningTotal.map((i) => Number(i));
+    console.log(numeric);
+    
+    numeric.reduce((a, b) => {
+        let total = a + b;
+        
+        livePrint(`${a} + ${b} = ${total}`);
+        filler()
+        runningTotal.unshift(total);
+        runningTotal.pop();
+        runningTotal.pop();
+        console.log(runningTotal);
+        
+    })
+   
 }
 
 function equalButton() {
-    let para = document.querySelector('.results');
-    runningTotal.push(para.textContent);
+    filler();
     total = runningTotal.join('');
-    para.innerHTML = '';
-    console.log(`${total}`);
-
-
+    filterInt(runningTotal[0]);
+    filterInt(runningTotal[1]);
+    addition(runningTotal[0], runningTotal[1]);    
+    console.log(addition(runningTotal[0], runningTotal[1]));
 }
