@@ -1,6 +1,7 @@
 let allComputations = [];
 let runningTotal = [];
-
+let method = []; 
+let para = document.querySelector('.results');
 
 // Numerical identifiers & event listeners
 const zero = document.querySelector('.zero');
@@ -32,6 +33,7 @@ four.addEventListener('click', () => {
 
 const five = document.querySelector('.five');
 five.addEventListener('click', () => {
+    
     print(5);
 })
 
@@ -61,29 +63,146 @@ nine.addEventListener('click', () => {
 })
 
 // Mathematic identifiers and event listeners
-const x = document.querySelector('.c2r1Bd');
-
-
-const period = document.querySelector('.period');
-
-
-const equals = document.querySelector('.equalButt');
-equals.addEventListener('click', equalButton);
-
-const divide = document.querySelector('.c1r1Bc');
-
-
-const clear = document.querySelector('.c1r1Bb');
-
-
-const allClear = document.querySelector('.c1r1Ba');
-
-
 const minus = document.querySelector('.minus');
+minus.addEventListener('click', () => {
+    if (runningTotal.length === 0 && para.textContent === '') {
+
+    } else {
+    para = document.querySelector('.results');
+
+    if(method[0] !== '') {
+        console.log(true)
+        operate();
+        method.shift();
+    method.pop();
+    method.push('-');
+    subtraction();
+    
+    } else if (method[0] == '') { 
+        console.log(false)
+    method.shift();
+    method.pop();
+    method.push('-');
+    subtraction();
+    }
+}
+});
 
 
 const plus = document.querySelector('.plus');
-plus.addEventListener('click', addition);
+plus.addEventListener('click', () => {
+    if (runningTotal.length === 0 && para.textContent === '') {
+
+    } else {
+    para = document.querySelector('.results');
+
+    if(method.length == 1) {
+        operate();
+    method.shift();
+    method.pop();
+    method.push('+');
+    addition();
+    } else {
+        method.shift();
+        method.pop();
+        method.push('+');
+        addition();
+    }
+}
+});
+
+
+const x = document.querySelector('.c2r1Bd');
+x.addEventListener('click', () => {
+    if (runningTotal.length === 0 && para.textContent === '') {
+
+    } else {
+
+    if(method[0] != '') {
+        operate();
+    method.shift();
+    method.pop();
+    method.push('*');
+    multiplication();
+    } else {
+        method.shift();
+        method.pop();
+        method.push('*');
+        multiplication();
+    }
+    }
+});
+
+const divide = document.querySelector('.c1r1Bc');
+divide.addEventListener('click', () => {
+    if (runningTotal.length === 0 && para.textContent === '') {
+
+    } else {
+    if(method[0] != '') {
+        operate();
+    method.shift();
+    method.pop();
+    method.push('/');
+    division();
+    } else {
+        method.shift();
+        method.pop();
+        method.push('/');
+        division();
+    }
+}
+});
+
+
+const period = document.querySelector('.period');
+period.addEventListener('click', () => {
+    let para = document.querySelector('.results');
+    if( para.textContent.includes('.') ) {
+
+    } else {
+        print('.');
+
+    }
+})
+
+
+const equals = document.querySelector('.equalButt');
+equals.addEventListener('click', () => {
+    let para = document.querySelector('.results');
+    let a = runningTotal[0];
+    let b = para.textContent;
+    let c = method[0];
+    operate(a, b, c);
+   
+    
+});    
+
+
+
+
+const clear = document.querySelector('.c1r1Bb');
+clear.addEventListener('click', () => {
+    clearFunction();
+})    
+
+function clearFunction() {
+    let para = document.querySelector('.results');
+    let w = para.textContent;
+    const x = w.toString().split('').slice(0, -1).join('');
+    const y = Number(x);
+    para.textContent = x;
+    
+}    
+
+const allClear = document.querySelector('.c1r1Ba');
+allClear.addEventListener('click', () => {
+    let liveComp = document.querySelector('.liveComputation');
+
+    runningTotal.pop();
+    runningTotal.shift();
+    filler();
+    liveComp.innerHTML = '';
+})    
 
 
 
@@ -111,11 +230,14 @@ function livePrint(text) {
     liveComp.innerHTML = text;
 }
 
-function addition(a, b) {
+function addition(a, b, c) {
     let para = document.querySelector('.results');
     para.style.innerHTML = "font-size: 35px; color: white; ";
+    if(para.innerHTML == '') {
 
-    runningTotal.push(para.innerHTML);
+    } else {
+        runningTotal.push(para.innerHTML);
+    }
     filler();
     let numeric = runningTotal.map((i) => Number(i));
     console.log(numeric);
@@ -123,22 +245,147 @@ function addition(a, b) {
     numeric.reduce((a, b) => {
         let total = a + b;
         
-        livePrint(`${a} + ${b} = ${total}`);
+        livePrint(`${a.toFixed(2)} + ${b.toFixed(2)} = ${total.toFixed(2)}`);
         filler()
         runningTotal.unshift(total);
         runningTotal.pop();
         runningTotal.pop();
         console.log(runningTotal);
-        
+        console.log(a + b);
+        c = '+';
     })
    
 }
 
+function subtraction(a, b, c) {
+    let para = document.querySelector('.results');
+    para.style.innerHTML = "font-size: 35px; color: white; ";
+    if(para.innerHTML == '') {
+
+    } else {
+        runningTotal.push(para.innerHTML);
+    }    
+    filler();
+    let numeric = runningTotal.map((i) => Number(i));
+    console.log(numeric);
+    
+    numeric.reduce((a, b) => {
+        let total = a - b;
+        
+        livePrint(`${a.toFixed(2)} - ${b.toFixed(2)} = ${total.toFixed(2)}`);
+        filler()
+        runningTotal.unshift(total);
+        runningTotal.pop();
+        runningTotal.pop();
+        console.log(runningTotal);
+        console.log(a - b);
+        c = '-';
+    })
+   
+}
+
+function division(a, b, c) {
+    let para = document.querySelector('.results');
+    para.style.innerHTML = "font-size: 35px; color: white; ";
+    if(para.innerHTML == '') {
+
+    } else {
+        runningTotal.push(para.innerHTML);
+    }
+    filler();
+    let numeric = runningTotal.map((i) => Number(i));
+    console.log(numeric);
+    
+    numeric.reduce((a, b) => {
+        if (a == 0 && b == 0) {
+            livePrint('0% of \'0\' is nothing...');
+        } else {
+        let total = a / b;
+        
+        livePrint(`${a.toFixed(2)} / ${b.toFixed(2)} = ${total.toFixed(2)}`);
+        filler()
+        runningTotal.unshift(total);
+        runningTotal.pop();
+        runningTotal.pop();
+        console.log(runningTotal);
+        console.log(a / b);
+        c = '/';
+        }
+    })
+}
+
+function multiplication(a, b, c) {
+    
+    let para = document.querySelector('.results');
+    para.style.innerHTML = "font-size: 35px; color: white; ";
+    if(para.innerHTML == '') {
+
+    } else {
+        runningTotal.push(para.innerHTML);
+    }
+    filler();
+    let numeric = runningTotal.map((i) => Number(i));
+    console.log(numeric);
+    
+    numeric.reduce((a, b) => {
+        let total = a * b;
+        
+        livePrint(`${a.toFixed(2)} * ${b.toFixed(2)} = ${total.toFixed(2)}`);
+        filler()
+        runningTotal.unshift(total);
+        runningTotal.pop();
+        runningTotal.pop();
+        console.log(runningTotal);
+        console.log(a * b);
+        c = '*';
+    })
+}
+
 function equalButton() {
     filler();
-    total = runningTotal.join('');
-    filterInt(runningTotal[0]);
-    filterInt(runningTotal[1]);
-    addition(runningTotal[0], runningTotal[1]);    
-    console.log(addition(runningTotal[0], runningTotal[1]));
+    print(livePrint);
+}
+
+
+function operate(a, b, c) {
+    let para = document.querySelector('.results');
+    c = method[0];
+    a = runningTotal[0];
+    b = para.textContent;
+    
+    switch(true) {
+        case c === '+' :
+            if(runningTotal.length == 0) {
+
+            } else if (runningTotal.length == 1) {
+                addition(a, b);
+            }
+        break;   
+        
+        case c === '-' :
+            if(runningTotal.length == 0) {
+
+            } else if (runningTotal.length == 1) {
+                subtraction(a, b);
+            }    
+        break;
+
+        case c === '/' :
+            if(runningTotal.length == 0) {
+                
+            } else if (runningTotal.length == 1) {
+                division(a, b);
+            }
+                
+        break;
+
+        case c === '*':
+            if(runningTotal.length == 0) {
+
+            } else if (runningTotal.length == 1) {
+                multiplication(a, b);
+            }    
+        
+        break;
+    }            
 }

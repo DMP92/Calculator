@@ -2,7 +2,7 @@ html, body {
     margin: 0 auto;
     padding: 0;  
     background-image: url(Images/wp2698161-dark-blue-hd-wallpaper.jpg);
-    
+    background-image: no-repeat;
 }
 
 /* 
@@ -163,9 +163,10 @@ a:hover {
     border-radius: 10px;
     
     flex-wrap: nowrap;
-    text-shadow: #3e474c 2px 2px 2px; 
+    text-shadow: #3e474c -2px 2px 2px; 
     justify-content: flex-end !important;
     grid-gap: 5px;
+    
 }
 
 
@@ -182,6 +183,7 @@ a:hover {
     grid-area: "liveComp";
     margin-right: 10px !important;
     align-self: flex-start !important;
+    
 }
 
 .button-grid {
