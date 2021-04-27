@@ -3,7 +3,16 @@ let runningTotal = [];
 let method = []; 
 let para = document.querySelector('.results');
 
+let eventArray = [];
+
 // Numerical identifiers & event listeners
+
+function pressedButt(e) {
+    const goal = document.querySelector('.pressed');
+    
+}
+pressedButt();
+
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
     print(0);
@@ -424,3 +433,24 @@ function operate(a, b, c) {
         break;
     }            
 }
+
+// keyboard support 
+
+window.addEventListener('keydown', function(e){
+    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
+    if(!button) return;
+    eventArray.push(`${e.keyCode}`);
+    console.log(eventArray);
+    eventArray.shift();
+    console.log(eventArray);
+   button.classList.add('pressed');
+});
+
+window.addEventListener('keyup', function(e) {
+    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
+    if(!button) return;
+    button.classList.remove('pressed');
+
+
+})
+    
