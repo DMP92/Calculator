@@ -97,7 +97,7 @@ plus.addEventListener('click', () => {
     para = document.querySelector('.results');
 
     if(method.length == 1) {
-        operate();
+    operate();
     method.shift();
     method.pop();
     method.push('+');
@@ -118,18 +118,18 @@ x.addEventListener('click', () => {
 
     } else {
 
-    if(method[0] != '') {
-        operate();
-    method.shift();
-    method.pop();
-    method.push('*');
-    multiplication();
-    } else {
+        if(method.length == 1) {
+            operate();
         method.shift();
         method.pop();
         method.push('*');
         multiplication();
-    }
+        } else {
+            method.shift();
+            method.pop();
+            method.push('*');
+            multiplication();
+        }
     }
 });
 
@@ -138,18 +138,18 @@ divide.addEventListener('click', () => {
     if (runningTotal.length === 0 && para.textContent === '') {
 
     } else {
-    if(method[0] != '') {
-        operate();
-    method.shift();
-    method.pop();
-    method.push('/');
-    division();
-    } else {
+        if(method.length == 1) {
+            operate();
         method.shift();
         method.pop();
         method.push('/');
         division();
-    }
+        } else {
+            method.shift();
+            method.pop();
+            method.push('/');
+            division();
+        }
 }
 });
 
@@ -245,9 +245,18 @@ function addition(a, b, c) {
     numeric.reduce((a, b) => {
         let total = a + b;
         
-        livePrint(`${a.toFixed(2)} + ${b.toFixed(2)} = ${total.toFixed(2)}`);
-        filler()
-        runningTotal.unshift(total);
+        switch(true) {
+            case total % 1 != 0:
+                livePrint(`${a} + ${b} = ${total.toFixed(2)}`);
+                filler();
+                runningTotal.unshift(total.toFixed(2)); 
+            break;
+            case total % 1 == 0:
+                livePrint(`${a} + ${b} = ${total}`);
+                filler();
+                runningTotal.unshift(total); 
+
+        }
         runningTotal.pop();
         runningTotal.pop();
         console.log(runningTotal);
@@ -272,9 +281,18 @@ function subtraction(a, b, c) {
     numeric.reduce((a, b) => {
         let total = a - b;
         
-        livePrint(`${a.toFixed(2)} - ${b.toFixed(2)} = ${total.toFixed(2)}`);
-        filler()
-        runningTotal.unshift(total);
+        switch(true) {
+            case total % 1 != 0:
+                livePrint(`${a} - ${b} = ${total.toFixed(2)}`);
+                filler();
+                runningTotal.unshift(total.toFixed(2)); 
+            break;
+            case total % 1 == 0:
+                livePrint(`${a} - ${b} = ${total}`);
+                filler();
+                runningTotal.unshift(total); 
+
+        }
         runningTotal.pop();
         runningTotal.pop();
         console.log(runningTotal);
@@ -297,20 +315,26 @@ function division(a, b, c) {
     console.log(numeric);
     
     numeric.reduce((a, b) => {
-        if (a == 0 && b == 0) {
-            livePrint('0% of \'0\' is nothing...');
-        } else {
         let total = a / b;
-        
-        livePrint(`${a.toFixed(2)} / ${b.toFixed(2)} = ${total.toFixed(2)}`);
-        filler()
-        runningTotal.unshift(total);
+        switch(true) {
+            case total % 1 != 0:
+                livePrint(`${a} / ${b} = ${total.toFixed(2)}`);
+                filler();
+                runningTotal.unshift(total.toFixed(2)); 
+            break;
+            case total % 1 == 0:
+                livePrint(`${a} / ${b} = ${total}`);
+                filler();
+                runningTotal.unshift(total); 
+
+        }
+       
         runningTotal.pop();
         runningTotal.pop();
         console.log(runningTotal);
         console.log(a / b);
         c = '/';
-        }
+        
     })
 }
 
@@ -327,24 +351,35 @@ function multiplication(a, b, c) {
     let numeric = runningTotal.map((i) => Number(i));
     console.log(numeric);
     
-    numeric.reduce((a, b) => {
-        let total = a * b;
+    
+
+    numeric.reduce((a, b) => { //a = undefined, b = 5
+        let total = a * b; 
+    // total = NaN
+        switch(true) {
+            case total % 1 != 0:
+                livePrint(`${a} * ${b} = ${total.toFixed(2)}`);
+                filler();
+                runningTotal.unshift(total.toFixed(2)); 
+            break;
+            case total % 1 == 0:
+                livePrint(`${a} * ${b} = ${total}`);
+                filler();
+                runningTotal.unshift(total); 
+
+        }
+       
         
-        livePrint(`${a.toFixed(2)} * ${b.toFixed(2)} = ${total.toFixed(2)}`);
-        filler()
-        runningTotal.unshift(total);
         runningTotal.pop();
         runningTotal.pop();
         console.log(runningTotal);
         console.log(a * b);
         c = '*';
+        
+        
     })
 }
 
-function equalButton() {
-    filler();
-    print(livePrint);
-}
 
 
 function operate(a, b, c) {

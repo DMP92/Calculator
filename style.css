@@ -35,7 +35,7 @@ black from old buttons: rgba(0, 0, 0, 0.79);
     }
 }
 
-@media screen and (min-width: 361px){
+@media screen and (min-width: 701px){
 h1 {
     font-style: italic;
     color: white;
@@ -50,7 +50,7 @@ h1 {
 
 
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 700px) {
     h1 {
         font-style: italic;
         color: white;
@@ -178,12 +178,36 @@ a:hover {
     margin-right: 5px;
 }
 
-.liveComputation {
-    position: fixed;
-    grid-area: "liveComp";
-    margin-right: 10px !important;
-    align-self: flex-start !important;
-    
+@media screen and (min-width: 701px) {
+    .liveComputation {
+        position: fixed;
+        flex-wrap: nowrap;
+        grid-area: "liveComp";
+        margin-right: 10px !important;
+        align-self: flex-start !important;
+        justify-content: center;
+        text-align: right;
+        width: 274px;
+        height: 36px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .liveComputation {
+        position: fixed;
+        flex-wrap: nowrap;
+        grid-area: "liveComp";
+        margin-right: 10px !important;
+        align-self: flex-start !important;
+        justify-content: center;
+        text-align: right;
+        width: 250px;
+        height: 34px;
+        overflow: hidden;
+        background-color: black;
+    }
+
+
 }
 
 .button-grid {
