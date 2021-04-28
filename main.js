@@ -63,7 +63,13 @@ window.addEventListener('keydown', function(e){
     break;
 
     case `${e.keyCode}` === "189":
-            minusButton();
+        if (para.textContent === '') {
+            print('-');
+        } else if (para.textContent === '-') {
+
+        } else {
+        minusButton();
+        }
     break;
     
     case `${e.keyCode}` === "187":
@@ -195,14 +201,19 @@ nine.addEventListener('click', () => {
 const minus = document.querySelector('.minus');
 minus.addEventListener('click', () => {
     minusButton();
+    if (para.textContent === '') {
+        print('-');
+    }
 });
 
 
     function minusButton() {
         if (runningTotal.length === 0 && para.textContent === '') {
-    
+           
+        } else if (para.textContent === '') {
+            print('-');
         } else {
-        para = document.querySelector('.results');
+            para = document.querySelector('.results');
     
         if(method[0] !== '') {
             console.log(true)
@@ -400,9 +411,9 @@ function addition(a, b, c) {
         
         switch(true) {
             case total % 1 != 0:
-                livePrint(`${a} + ${b} = ${total.toFixed(2)}`);
+                livePrint(`${a} + ${b} = ${total.toFixed(10)}`);
                 filler();
-                runningTotal.unshift(total.toFixed(2)); 
+                runningTotal.unshift(total.toFixed(10)); 
             break;
             case total % 1 == 0:
                 livePrint(`${a} + ${b} = ${total}`);
@@ -422,8 +433,8 @@ function addition(a, b, c) {
 function subtraction(a, b, c) {
     let para = document.querySelector('.results');
     para.style.innerHTML = "font-size: 35px; color: white; ";
-    if(para.innerHTML == '') {
-
+    if(para.textContent === '') {
+            print('-');
     } else {
         runningTotal.push(para.innerHTML);
     }    
@@ -436,9 +447,9 @@ function subtraction(a, b, c) {
         
         switch(true) {
             case total % 1 != 0:
-                livePrint(`${a} - ${b} = ${total.toFixed(2)}`);
+                livePrint(`${a} - ${b} = ${total.toFixed(10)}`);
                 filler();
-                runningTotal.unshift(total.toFixed(2)); 
+                runningTotal.unshift(total.toFixed(10)); 
             break;
             case total % 1 == 0:
                 livePrint(`${a} - ${b} = ${total}`);
@@ -471,9 +482,9 @@ function division(a, b, c) {
         let total = a / b;
         switch(true) {
             case total % 1 != 0:
-                livePrint(`${a} / ${b} = ${total.toFixed(2)}`);
+                livePrint(`${a} / ${b} = ${total.toFixed(10)}`);
                 filler();
-                runningTotal.unshift(total.toFixed(2)); 
+                runningTotal.unshift(total.toFixed(10)); 
             break;
             case total % 1 == 0:
                 livePrint(`${a} / ${b} = ${total}`);
@@ -511,9 +522,9 @@ function multiplication(a, b, c) {
     // total = NaN
         switch(true) {
             case total % 1 != 0:
-                livePrint(`${a} * ${b} = ${total.toFixed(2)}`);
+                livePrint(`${a} * ${b} = ${total.toFixed(10)}`);
                 filler();
-                runningTotal.unshift(total.toFixed(2)); 
+                runningTotal.unshift(total.toFixed(10)); 
             break;
             case total % 1 == 0:
                 livePrint(`${a} * ${b} = ${total}`);
@@ -542,6 +553,8 @@ function operate(a, b, c) {
     b = para.textContent;
     
     switch(true) {
+        case para.textContent === '-':
+        break;
         case c === '+' :
             if(runningTotal.length == 0) {
 
@@ -578,3 +591,9 @@ function operate(a, b, c) {
     }            
 }
 
+
+
+function negative(num) {
+    num = para.textContent;
+    return -Math.abs(num);
+}
