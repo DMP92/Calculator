@@ -200,9 +200,12 @@ nine.addEventListener('click', () => {
 // Mathematic identifiers and event listeners
 const minus = document.querySelector('.minus');
 minus.addEventListener('click', () => {
-    minusButton();
     if (para.textContent === '') {
         print('-');
+    } else if (para.textContent === '-') {
+
+    } else {
+    minusButton();
     }
 });
 
