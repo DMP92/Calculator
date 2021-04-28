@@ -593,7 +593,3 @@ function operate(a, b, c) {
 
 
 
-function negative(num) {
-    num = para.textContent;
-    return -Math.abs(num);
-}

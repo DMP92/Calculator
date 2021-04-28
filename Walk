@@ -23,3 +23,34 @@ divide 0 by 0.
 8. Decimal points should be 
 reduced to three places.
 
+// May use this in the future for a keyboard legend
+
+<div class="instructional">
+            <h3>Keyboard Legend:</h3>
+            <br>
+            <ul>
+                <li><strong>esc</strong><br> A/C</li>
+                <li><strong>x</strong><br> Multiply</li>
+                <li><strong>. && ></strong> <br>Decimal</li>
+                <li><strong>/</strong><br> Divide</li>
+                <li><strong>Delete</strong><br> Remove Last</li>
+            </ul>
+        </div>
+        
+
+        @media screen and (min-width: 701px) {
+    .instructional {
+        
+        margin-top: 50px;
+        text-align: center;
+        display: flex;
+        grid-area: "instructional";
+        justify-content: center;
+        align-items: center;
+        width: 970px;
+        height: 100%;
+        color: white;
+        background-color:#00e1ff1e;
+        border-radius: 50px;
+    }
+}       
