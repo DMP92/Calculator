@@ -1,17 +1,134 @@
+let eventArray = [];
 let allComputations = [];
 let runningTotal = [];
 let method = []; 
 let para = document.querySelector('.results');
 
-let eventArray = [];
+
+// keyboard support 
+
+window.addEventListener('keydown', function(e){
+    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
+    if(!button) return;
+    eventArray.unshift(`${e.keyCode}`);
+    console.log(eventArray);
+    button.classList.add('pressed');
+    para = document.querySelector('.results');
+    if(!button) return;
+
+    switch(true) {
+        case `${e.keyCode}` === "48":
+            print(0);
+        break;
+    
+    case `${e.keyCode}` === "49":
+            print(1);
+    break;
+
+    case `${e.keyCode}` === "50":
+            print(2);
+    break;
+
+    case `${e.keyCode}` === "51":
+            print(3);
+    break;
+
+    case `${e.keyCode}` === "52":
+            print(4);
+
+    break;
+
+    case `${e.keyCode}` === "53":
+            print(5);
+    break;
+
+    case `${e.keyCode}` === "54":
+            print(6);
+    break;
+
+    case `${e.keyCode}` === "55":
+            print(7);
+    break;
+
+    case `${e.keyCode}` === "56":
+            print(8);
+    break;
+
+    case `${e.keyCode}` === "57":
+            print(9);
+    break;
+
+    case `${e.keyCode}` === "13":
+            equalsButton();
+    break;
+
+    case `${e.keyCode}` === "189":
+            minusButton();
+    break;
+    
+    case `${e.keyCode}` === "187":
+            plusButton();
+
+    break;
+
+    case `${e.keyCode}` === "190":
+            periodButton()
+    break;
+
+    case `${e.keyCode}` === "191":
+            divisionButton()
+    break;
+
+    case `${e.keyCode}` === "27":
+            allClearButton();
+    break;
+
+    case `${e.keyCode}` === "88":
+        multiButton();
+    break;
+
+    case `${e.keyCode}` === "8":
+            clearFunction();
+    break;
+
+    case `${e.keyCode}` === "110":
+        periodButton();
+    break;
+
+    case `${e.keyCode}` === "106":
+        multiButton();
+    break;
+
+    case `${e.keyCode}` === "111":
+        divisionButton();
+    break;
+
+    case `${e.keyCode}` === "109":
+        minusButton();
+    break;
+
+    case `${e.keyCode}` === "107":
+        plusButton();
+    break;
+
+}});
+
+window.addEventListener('keyup', function(e) {
+    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
+    if(!button) return;
+    button.classList.remove('pressed');
+    eventArray.pop();
+    console.log(eventArray);
+    
+    
+})
+
+
+
 
 // Numerical identifiers & event listeners
 
-function pressedButt(e) {
-    const goal = document.querySelector('.pressed');
-    
-}
-pressedButt();
+
 
 const zero = document.querySelector('.zero');
 zero.addEventListener('click', () => {
@@ -71,35 +188,46 @@ nine.addEventListener('click', () => {
 
 })
 
+
+
+
 // Mathematic identifiers and event listeners
 const minus = document.querySelector('.minus');
 minus.addEventListener('click', () => {
-    if (runningTotal.length === 0 && para.textContent === '') {
-
-    } else {
-    para = document.querySelector('.results');
-
-    if(method[0] !== '') {
-        console.log(true)
-        operate();
-        method.shift();
-    method.pop();
-    method.push('-');
-    subtraction();
-    
-    } else if (method[0] == '') { 
-        console.log(false)
-    method.shift();
-    method.pop();
-    method.push('-');
-    subtraction();
-    }
-}
+    minusButton();
 });
 
 
+    function minusButton() {
+        if (runningTotal.length === 0 && para.textContent === '') {
+    
+        } else {
+        para = document.querySelector('.results');
+    
+        if(method[0] !== '') {
+            console.log(true)
+            operate();
+            method.shift();
+        method.pop();
+        method.push('-');
+        subtraction();
+        
+        } else if (method[0] == '') { 
+            console.log(false)
+        method.shift();
+        method.pop();
+        method.push('-');
+        subtraction();
+        }
+    }
+}
+
 const plus = document.querySelector('.plus');
 plus.addEventListener('click', () => {
+    plusButton();
+});
+
+function plusButton() {
     if (runningTotal.length === 0 && para.textContent === '') {
 
     } else {
@@ -118,11 +246,15 @@ plus.addEventListener('click', () => {
         addition();
     }
 }
-});
+}
 
 
 const x = document.querySelector('.c2r1Bd');
 x.addEventListener('click', () => {
+    multiButton();
+});
+
+function multiButton() {
     if (runningTotal.length === 0 && para.textContent === '') {
 
     } else {
@@ -140,10 +272,14 @@ x.addEventListener('click', () => {
             multiplication();
         }
     }
-});
+}
 
 const divide = document.querySelector('.c1r1Bc');
 divide.addEventListener('click', () => {
+    divisionButton();
+});
+
+function divisionButton() {
     if (runningTotal.length === 0 && para.textContent === '') {
 
     } else {
@@ -160,11 +296,14 @@ divide.addEventListener('click', () => {
             division();
         }
 }
-});
-
+}
 
 const period = document.querySelector('.period');
 period.addEventListener('click', () => {
+    periodButton();
+})
+
+function periodButton() {
     let para = document.querySelector('.results');
     if( para.textContent.includes('.') ) {
 
@@ -172,21 +311,24 @@ period.addEventListener('click', () => {
         print('.');
 
     }
-})
-
+}
 
 const equals = document.querySelector('.equalButt');
 equals.addEventListener('click', () => {
+   equalsButton();
+   
+    
+});    
+
+function equalsButton() {
     let para = document.querySelector('.results');
     let a = runningTotal[0];
     let b = para.textContent;
     let c = method[0];
     operate(a, b, c);
-   
-    
-});    
+}
 
-
+// Erasing features 
 
 
 const clear = document.querySelector('.c1r1Bb');
@@ -205,15 +347,17 @@ function clearFunction() {
 
 const allClear = document.querySelector('.c1r1Ba');
 allClear.addEventListener('click', () => {
+    allClearButton();
+})    
+
+function allClearButton() {
     let liveComp = document.querySelector('.liveComputation');
 
     runningTotal.pop();
     runningTotal.shift();
     filler();
     liveComp.innerHTML = '';
-})    
-
-
+}
 
 
 // Screen Printing 
@@ -434,23 +578,3 @@ function operate(a, b, c) {
     }            
 }
 
-// keyboard support 
-
-window.addEventListener('keydown', function(e){
-    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
-    if(!button) return;
-    eventArray.push(`${e.keyCode}`);
-    console.log(eventArray);
-    eventArray.shift();
-    console.log(eventArray);
-   button.classList.add('pressed');
-});
-
-window.addEventListener('keyup', function(e) {
-    const button = document.querySelector(`button[data-key="${e.keyCode}"`);
-    if(!button) return;
-    button.classList.remove('pressed');
-
-
-})
-    
