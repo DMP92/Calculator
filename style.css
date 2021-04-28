@@ -229,7 +229,7 @@ a:hover {
 
 @media screen and (max-width: 700px) {
     .liveComputation {
-        position: relative;
+        position: fixed;
         z-index: 10;
         flex-wrap: nowrap;
         grid-area: "liveComp";
