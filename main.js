@@ -218,7 +218,7 @@ minus.addEventListener('click', () => {
         } else {
             para = document.querySelector('.results');
     
-        if(method[0] !== '') {
+        if(method[0] != '') {
             console.log(true)
             operate();
             method.shift();
@@ -369,8 +369,12 @@ function allClearButton() {
 
     runningTotal.pop();
     runningTotal.shift();
+    method.pop();
+    method.shift();
     filler();
     liveComp.innerHTML = '';
+    para.textContent = '';
+    console.log(runningTotal);
 }
 
 
@@ -450,6 +454,7 @@ function subtraction(a, b, c) {
         
         switch(true) {
             case total % 1 != 0:
+                
                 livePrint(`${a} - ${b} = ${total.toFixed(10)}`);
                 filler();
                 runningTotal.unshift(total.toFixed(10)); 
